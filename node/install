@@ -1,0 +1,7 @@
+if test ! $(which rimraf)
+then
+  if test $(which npm)
+  then
+    sudo npm install rimraf -g
+  fi
+fi
