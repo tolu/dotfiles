@@ -1,0 +1,38 @@
+# Local/private config goes in the include
+[include]
+        path = ~/.gitconfig.local
+[user]
+	      name = Tobias Lundin
+      	email = tobias.lundin@gmail.com
+[alias]
+      	st = status
+	      co = checkout
+	      br = branch
+	      com = checkout master
+	      ec = config --global -e
+	      up = !git pull --rebase --prune $@ && git submodule update --init --recursive
+	      cob = checkout -b
+	      cm = !git add -A && git commit -m
+        wip = !git add -u && git commit -mWIP
+	      undo = reset HEAD~1 --mixed
+	      amend = commit -a --amend
+        rename = branch -m
+	      # remove branch
+	      rmb = branch -D
+  	    # get current branch
+	      branch-name = "!git rev-parse --abbrev-ref HEAD"
+	      # push branch to origin and track upstream
+      	publish = "!git push -u origin $(git branch-name)"
+[core]
+        autocrlf = input
+	      filemode = false
+[apply]
+        whitespace = nowarn
+[mergetool]
+        keepBackup = false
+[difftool]
+        prompt = false
+[help]
+        autocorrect = 1
+[push]
+        default = simple
